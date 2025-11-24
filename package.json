@@ -95,7 +95,9 @@
         "run.xml",
         "idx",
         "ilg",
-        "ind"
+        "ind",
+        "maf",
+        "*.mtc*"
       ],
       "items": {
         "type": "string"
