@@ -7,6 +7,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
+  cursor: default;
 
   &:hover {
     background-color: @background-color-highlight;
@@ -19,6 +20,27 @@
 
   .loading-spinner-tiny {
     margin: 0;
+  }
+
+  .latex-tools-status-timer {
+    opacity: 0.8;
+  }
+
+  // Status states
+  &.status-idle {
+    color: @text-color-subtle;
+  }
+
+  &.status-building {
+    color: @text-color;
+  }
+
+  &.status-success {
+    color: @text-color-success;
+  }
+
+  &.status-error {
+    color: @text-color-error;
   }
 }
 
