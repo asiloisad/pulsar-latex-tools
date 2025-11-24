@@ -4,33 +4,21 @@
 .latex-tools-status {
   padding: 0 0.5em;
   transition: all 0.2s ease;
-  
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+
   &:hover {
     background-color: @background-color-highlight;
     opacity: 0.8;
   }
-  
+
   &:active {
     opacity: 0.6;
   }
-  
-  .latex-tools-status-text {
-    margin-left: 0.4em;
-  }
-  
-  &.status-building {
-    .icon-sync {
-      animation: spin 2s linear infinite;
-    }
-  }
-}
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .loading-spinner-tiny {
+    margin: 0;
   }
 }
 
@@ -54,7 +42,7 @@
 
 .latex-count {
   font-weight: bold;
-  
+
   &:not(:last-child)::after {
     content: "•";
     margin-left: 1em;
@@ -73,19 +61,20 @@
   border-collapse: collapse;
   cursor: default;
 
-  > thead {
+  >thead {
     position: sticky;
     top: 0;
     z-index: 3;
     background-color: @background-color-highlight;
   }
 
-  th, td {
+  th,
+  td {
     padding: 0.4em 0.6em;
     border: 1px solid @base-border-color;
     text-align: left;
     vertical-align: top;
-    
+
     p {
       margin-bottom: 0;
     }
@@ -139,7 +128,7 @@
   .latex-empty,
   .latex-building {
     cursor: default;
-    
+
     &:hover {
       background-color: transparent;
     }
@@ -157,7 +146,7 @@
     opacity: 1;
     font-style: normal;
     color: @text-color-info;
-    
+
     .icon-sync.spinning {
       display: inline-block;
       margin-right: 0.5em;
