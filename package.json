@@ -26,6 +26,7 @@
       "latex-tools:open-pdf",
       "latex-tools:open-pdf-external",
       "latex-tools:clean",
+      "latex-tools:clean-linter",
       "latex-tools:interrupt",
       "latex:rebuild",
       "latex:show-log",
