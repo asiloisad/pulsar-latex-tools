@@ -20,6 +20,28 @@
       }
     }
   },
+  "activationCommands": {
+    "atom-text-editor[data-grammar~=\"latex\"]": [
+      "latex-tools:compile",
+      "latex-tools:open-pdf",
+      "latex-tools:open-pdf-external",
+      "latex-tools:clean",
+      "latex-tools:interrupt",
+      "latex:rebuild",
+      "latex:show-log",
+      "latex:sync-log",
+      "latex:sync",
+      "latex:toggle-log"
+    ],
+    "atom-workspace": [
+      "latex-tools:toggle-panel"
+    ]
+  },
+  "activationHooks": [
+    "language-latex:grammar-used",
+    "language-tex:grammar-used",
+    "language-latexsimple:grammar-used"
+  ],
   "consumedServices": {
     "status-bar": {
       "versions": {
