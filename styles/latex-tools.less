@@ -1,16 +1,31 @@
+@import "ui-variables";
+
+// Status Bar Styles
 .latex-tools-status {
-  margin-left: 8px;
+  padding: 0 0.5em;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: @background-color-highlight;
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.6;
+  }
+  
+  .latex-tools-status-text {
+    margin-left: 0.4em;
+  }
+  
+  &.status-building {
+    .icon-sync {
+      animation: spin 2s linear infinite;
+    }
+  }
 }
 
-.latex-tools-status .icon {
-  margin-right: 5px;
-}
-
-.latex-tools-status.status-building .icon {
-  animation: latex-tools-spin 1s linear infinite;
-}
-
-@keyframes latex-tools-spin {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
@@ -19,6 +34,142 @@
   }
 }
 
-.latex-tools-status-text {
-  font-size: 12px;
+// LaTeX Panel Styles
+.latex-panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: @tool-panel-background-color;
+}
+
+.latex-summary {
+  padding: 0.5em;
+  background-color: @background-color-highlight;
+  border-bottom: 1px solid @base-border-color;
+  display: flex;
+  gap: 1em;
+  font-size: 0.9em;
+}
+
+.latex-count {
+  font-weight: bold;
+  
+  &:not(:last-child)::after {
+    content: "•";
+    margin-left: 1em;
+    opacity: 0.5;
+  }
+}
+
+.latex-table-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.latex-table {
+  width: 100%;
+  border-collapse: collapse;
+  cursor: default;
+
+  > thead {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: @background-color-highlight;
+  }
+
+  th, td {
+    padding: 0.4em 0.6em;
+    border: 1px solid @base-border-color;
+    text-align: left;
+    vertical-align: top;
+    
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  th {
+    font-weight: bold;
+    border-bottom: 2px solid @base-border-color;
+  }
+
+  // Column widths
+  th:nth-child(1) {
+    width: 8%;
+    white-space: nowrap;
+  }
+
+  th:nth-child(2) {
+    width: 6%;
+    white-space: nowrap;
+  }
+
+  th:nth-child(3) {
+    width: 15%;
+  }
+
+  th:nth-child(4) {
+    width: 71%;
+  }
+
+  .latex-row {
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background-color: @background-color-selected;
+    }
+
+    &.error {
+      border-left: 3px solid @background-color-error;
+    }
+
+    &.warning {
+      border-left: 3px solid @background-color-warning;
+    }
+
+    &.info {
+      border-left: 3px solid @background-color-info;
+    }
+  }
+
+  .latex-empty {
+    cursor: default;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .latex-empty-message {
+    text-align: center;
+    padding: 2em;
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  .latex-severity {
+    &::before {
+      margin-right: 0.5em;
+    }
+  }
+
+  .latex-line {
+    text-align: center;
+    font-family: monospace;
+  }
+
+  .latex-file {
+    font-family: monospace;
+    font-size: 0.9em;
+    color: @text-color-subtle;
+  }
+
+  .latex-message {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
 }

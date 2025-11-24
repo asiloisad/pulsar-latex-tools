@@ -52,7 +52,7 @@
       "title": "Auxiliary file extensions",
       "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command (F8).",
       "type": "array",
-      "default": ["aux", "fls", "log", "*.synctex*", "out", "toc", "lof", "lot", "*.bbl*", "*.bcf*", "blg", "fdb_latexmk", "nav", "snm", "vrb", "run.xml", "idx", "ilg", "ind", "maf", "*.mtc*"],
+      "default": ["aux", "log", "out", "toc", "lof", "lot", "bbl", "blg", "fls", "fdb_latexmk", "synctex.gz", "nav", "snm", "vrb", "bcf", "run.xml", "idx", "ilg", "ind"],
       "items": {
         "type": "string"
       }
@@ -65,5 +65,7 @@
       "default": false
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "etch": "^0.14.1"
+  }
 }
