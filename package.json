@@ -22,7 +22,7 @@
   },
   "activationCommands": {
     "atom-text-editor[data-grammar~=\"latex\"]": [
-      "latex-tools:compile",
+      "latex-tools:build",
       "latex-tools:open-pdf",
       "latex-tools:open-pdf-external",
       "latex-tools:clean",
