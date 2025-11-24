@@ -29,6 +29,7 @@
       "latex-tools:clean-linter",
       "latex-tools:interrupt",
       "latex-tools:interrupt-all",
+      "latex-tools:kill-and-clean",
       "latex-tools:toggle-compile-on-save",
       "latex:rebuild",
       "latex:show-log",
