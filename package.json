@@ -16,7 +16,7 @@
   "providedServices": {
     "latex-tools.build": {
       "versions": {
-        "1.0.0": "provideBuildService"
+        "1.0.0": "provideBuildStatus"
       }
     }
   },
