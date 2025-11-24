@@ -32,9 +32,6 @@
       "latex:sync-log",
       "latex:sync",
       "latex:toggle-log"
-    ],
-    "atom-workspace": [
-      "latex-tools:toggle-panel"
     ]
   },
   "activationHooks": [
@@ -51,6 +48,11 @@
     "open-external": {
       "versions": {
         "1.0.0": "consumeOpenExternal"
+      }
+    },
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
       }
     }
   },
@@ -103,20 +105,6 @@
       "order": 4,
       "title": "Enable shell escape",
       "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
-      "type": "boolean",
-      "default": false
-    },
-    "hideInfoMessages": {
-      "order": 5,
-      "title": "Hide info messages",
-      "description": "Hide informational messages (like overfull/underfull boxes) in the issues panel.",
-      "type": "boolean",
-      "default": false
-    },
-    "hideWarningMessages": {
-      "order": 6,
-      "title": "Hide warning messages",
-      "description": "Hide warning messages in the issues panel. Only errors will be shown.",
       "type": "boolean",
       "default": false
     }
