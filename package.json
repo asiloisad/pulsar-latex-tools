@@ -47,8 +47,18 @@
       "type": "boolean",
       "default": false
     },
-    "shellEscape": {
+    "auxFileExtensions": {
       "order": 3,
+      "title": "Auxiliary file extensions",
+      "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command (F8).",
+      "type": "array",
+      "default": ["aux", "fls", "log", "*.synctex*", "out", "toc", "lof", "lot", "*.bbl*", "*.bcf*", "blg", "fdb_latexmk", "nav", "snm", "vrb", "run.xml", "idx", "ilg", "ind", "maf", "*.mtc*"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "shellEscape": {
+      "order": 4,
       "title": "Enable shell escape",
       "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
       "type": "boolean",

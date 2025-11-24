@@ -2,3 +2,4 @@
   'f5': 'latex-tools:compile'
   'f6': 'latex-tools:open-pdf'
   'f7': 'latex-tools:open-pdf-external'
+  'f8': 'latex-tools:clean'
