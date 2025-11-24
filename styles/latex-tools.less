@@ -1,0 +1,24 @@
+.latex-tools-status {
+  margin-left: 8px;
+}
+
+.latex-tools-status .icon {
+  margin-right: 5px;
+}
+
+.latex-tools-status.status-building .icon {
+  animation: latex-tools-spin 1s linear infinite;
+}
+
+@keyframes latex-tools-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.latex-tools-status-text {
+  font-size: 12px;
+}

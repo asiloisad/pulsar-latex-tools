@@ -13,8 +13,20 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "providedServices": {},
-  "consumedServices": {},
+  "providedServices": {
+    "latex-tools.build": {
+      "versions": {
+        "1.0.0": "provideBuildService"
+      }
+    }
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^8.0.0"

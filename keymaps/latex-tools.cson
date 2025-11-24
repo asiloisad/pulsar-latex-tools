@@ -1,0 +1,2 @@
+'atom-text-editor[data-grammar~="latex"]':
+  'f5': 'latex-tools:compile'

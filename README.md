@@ -1,56 +1,47 @@
 # latex-tools
 
-LaTeX tools for Pulsar editor.
+LaTeX compilation tools for Pulsar editor.
 
 ## Features
 
-(Features to be implemented)
+- Compile LaTeX files using `latexmk`
+- Automatic BibTeX support
+- PDF generation
+- **Status bar indicator** showing build progress
 
-## Installation
+## Requirements
 
-### From Pulsar Package Manager
-
-```bash
-ppm install latex-tools
-```
-
-### From Source
-
-Clone this repository into your Pulsar packages directory:
-
-```bash
-cd ~/.pulsar/packages
-git clone https://github.com/your-username/latex-tools.git
-cd latex-tools
-ppm install
-```
+- `latexmk` must be installed and available in your PATH
 
 ## Usage
 
-(Usage instructions to be added)
+### Compile Current File
 
-## Commands
+- **Command**: `latex-tools:compile`
+- **Keybinding**: `Ctrl-Alt-B` (in LaTeX files)
 
-- `latex-tools:toggle` - Toggle LaTeX Tools
+The compiler will:
+- Save your file
+- Run `latexmk -pdf -bibtex`
+- Show success/error notifications
+- Update status bar indicator
+- Generate PDF in the same directory
 
-## Development
+### Status Bar Indicator
 
-### Running Tests
+The status bar (bottom right) shows:
+- **Building...** - Compilation in progress (spinning icon)
+- **Build succeeded** - Successful compilation (green checkmark, auto-hides after 3s)
+- **Build failed** - Compilation error (red X, auto-hides after 5s)
+- **LaTeX** - Idle state (PDF icon)
+
+## Installation
+
+Link the package to Pulsar:
 
 ```bash
-ppm test
+cd C:\Data\Develop\Pulsar\latex-tools
+ppm link
 ```
 
-### Linting
-
-```bash
-npm run lint
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT
+Then reload Pulsar.
