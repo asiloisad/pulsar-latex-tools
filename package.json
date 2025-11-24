@@ -28,6 +28,7 @@
       "latex-tools:clean",
       "latex-tools:clean-linter",
       "latex-tools:interrupt",
+      "latex-tools:interrupt-all",
       "latex:rebuild",
       "latex:show-log",
       "latex:sync-log",
