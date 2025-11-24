@@ -1,0 +1,22 @@
+{
+  "name": "latex-tools",
+  "main": "./lib/main",
+  "version": "0.1.0",
+  "description": "LaTeX tools for Pulsar editor",
+  "keywords": [
+    "latex",
+    "tex",
+    "typesetting"
+  ],
+  "repository": "https://github.com/asiloisad/pulsar-latex-tools",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "providedServices": {},
+  "consumedServices": {},
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
