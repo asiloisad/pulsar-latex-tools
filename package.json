@@ -32,5 +32,28 @@
       }
     }
   },
+  "configSchema": {
+    "enableSynctex": {
+      "order": 1,
+      "title": "Enable SyncTeX",
+      "description": "Enable SyncTeX for forward and backward search between source and PDF. Required for pdf-viewer synctex features.",
+      "type": "boolean",
+      "default": true
+    },
+    "cleanAuxFiles": {
+      "order": 2,
+      "title": "Clean auxiliary files after build",
+      "description": "Remove auxiliary files (.aux, .log, .out, etc.) after successful compilation.",
+      "type": "boolean",
+      "default": false
+    },
+    "shellEscape": {
+      "order": 3,
+      "title": "Enable shell escape",
+      "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
+      "type": "boolean",
+      "default": false
+    }
+  },
   "dependencies": {}
 }
