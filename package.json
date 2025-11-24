@@ -74,7 +74,27 @@
       "title": "Auxiliary file extensions",
       "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command (F8).",
       "type": "array",
-      "default": ["aux", "log", "out", "toc", "lof", "lot", "bbl", "blg", "fls", "fdb_latexmk", "synctex.gz", "nav", "snm", "vrb", "bcf", "run.xml", "idx", "ilg", "ind"],
+      "default": [
+        "aux",
+        "log",
+        "out",
+        "toc",
+        "lof",
+        "lot",
+        "bbl",
+        "blg",
+        "fls",
+        "fdb_latexmk",
+        "synctex.gz",
+        "nav",
+        "snm",
+        "vrb",
+        "bcf",
+        "run.xml",
+        "idx",
+        "ilg",
+        "ind"
+      ],
       "items": {
         "type": "string"
       }
@@ -83,6 +103,20 @@
       "order": 4,
       "title": "Enable shell escape",
       "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
+      "type": "boolean",
+      "default": false
+    },
+    "hideInfoMessages": {
+      "order": 5,
+      "title": "Hide info messages",
+      "description": "Hide informational messages (like overfull/underfull boxes) in the issues panel.",
+      "type": "boolean",
+      "default": false
+    },
+    "hideWarningMessages": {
+      "order": 6,
+      "title": "Hide warning messages",
+      "description": "Hide warning messages in the issues panel. Only errors will be shown.",
       "type": "boolean",
       "default": false
     }
