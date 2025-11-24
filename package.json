@@ -107,6 +107,13 @@
       "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
       "type": "boolean",
       "default": false
+    },
+    "debug": {
+      "order": 5,
+      "title": "Debug Mode",
+      "description": "Enable debug messages in the developer console.",
+      "type": "boolean",
+      "default": false
     }
   },
   "dependencies": {
