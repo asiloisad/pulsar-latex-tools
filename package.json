@@ -122,6 +122,27 @@
       "description": "Enable debug messages in the developer console.",
       "type": "boolean",
       "default": false
+    },
+    "suppressErrors": {
+      "order": 6,
+      "title": "Suppress Errors",
+      "description": "Hide error messages from the linter panel.",
+      "type": "boolean",
+      "default": false
+    },
+    "suppressWarnings": {
+      "order": 7,
+      "title": "Suppress Warnings",
+      "description": "Hide warning messages from the linter panel.",
+      "type": "boolean",
+      "default": false
+    },
+    "suppressInfos": {
+      "order": 8,
+      "title": "Suppress Infos",
+      "description": "Hide info messages from the linter panel.",
+      "type": "boolean",
+      "default": false
     }
   },
   "dependencies": {
