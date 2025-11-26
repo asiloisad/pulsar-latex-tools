@@ -18,8 +18,12 @@
     opacity: 0.6;
   }
 
-  .loading-spinner-tiny {
-    margin: 0;
+  .latex-tools-status-label {
+    font-weight: 500;
+
+    &.building-animation {
+      animation: pulse 1s ease-in-out infinite;
+    }
   }
 
   .latex-tools-status-timer {
@@ -28,7 +32,7 @@
 
   // Status states
   &.status-idle {
-    color: @text-color-subtle;
+    color: @text-color;
   }
 
   &.status-building {
@@ -41,6 +45,12 @@
 
   &.status-error {
     color: @text-color-error;
+  }
+
+  // Auto-compile mode indicator
+  &.auto-mode {
+    border: 1px solid @text-color-subtle;
+    border-radius: 3px;
   }
 }
 
@@ -208,5 +218,15 @@
   .latex-message {
     word-wrap: break-word;
     word-break: break-word;
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
   }
 }
