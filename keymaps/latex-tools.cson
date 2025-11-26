@@ -1,10 +1,9 @@
 'atom-text-editor[data-grammar~="latex"]':
   'f5': 'latex-tools:compile'
+  'alt-f5': 'latex-tools:compile-on-save'
   'ctrl-f5': 'latex-tools:interrupt'
-  'f6': 'latex-tools:open-pdf'
-  'f7': 'latex-tools:open-pdf-external'
-  'f8': 'latex-tools:clean'
-  'shift-f8': 'latex-tools:kill-and-clean'
-
-'atom-workspace':
-  'f9': 'latex-tools:toggle-panel'
+  'f6': 'latex-tools:clean'
+  'alt-f6': 'latex:clean-linter'
+  'ctrl-f6': 'latex-tools:kill-and-clean'
+  'f7': 'latex-tools:open-pdf'
+  'f8': 'latex-tools:open-pdf-external'
