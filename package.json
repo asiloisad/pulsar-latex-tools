@@ -54,7 +54,7 @@
     },
     "cleanExtensions": {
       "order": 3,
-      "title": "Auxiliary file extensions",
+      "title": "Clean patterns",
       "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command.",
       "type": "array",
       "default": [
