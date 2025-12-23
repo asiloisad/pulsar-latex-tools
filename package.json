@@ -1,7 +1,7 @@
 {
   "name": "latex-tools",
   "main": "./lib/main",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "LaTeX tools for Pulsar editor",
   "keywords": [
     "latex",
