@@ -52,13 +52,20 @@
       "type": "boolean",
       "default": false
     },
-    "auxFileExtensions": {
+    "cleanExtensions": {
       "order": 3,
       "title": "Auxiliary file extensions",
-      "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command (F8).",
+      "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command.",
       "type": "array",
       "default": [
         "aux",
+        "acn",
+        "acr",
+        "alg",
+        "glg",
+        "glo",
+        "gls",
+        "ist",
         "log",
         "out",
         "toc",
