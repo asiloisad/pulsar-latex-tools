@@ -9,6 +9,46 @@ LaTeX tools for Pulsar editor.
 - **Linter**: Integrated error reporting via `linter-indie`.
 - **Multiple Builds**: Support for compiling multiple files simultaneously.
 
+## Requirements
+
+This package requires `latexmk` and a LaTeX distribution to be installed on your system.
+
+### Installing LaTeX
+
+**Windows:**
+- [MiKTeX](https://miktex.org/download) - Recommended, includes `latexmk`
+- [TeX Live](https://www.tug.org/texlive/) - Full distribution
+
+**macOS:**
+- [MacTeX](https://www.tug.org/mactex/) - Full TeX Live distribution for macOS
+- Or via Homebrew: `brew install --cask mactex`
+
+**Linux:**
+- Ubuntu/Debian: `sudo apt install texlive-full latexmk`
+- Fedora: `sudo dnf install texlive-scheme-full latexmk`
+- Arch: `sudo pacman -S texlive-most latexmk`
+
+### Verifying Installation
+
+After installation, verify that `latexmk` is available in your PATH:
+
+```bash
+latexmk --version
+```
+
+### Global Configuration
+
+Use the `latex-tools:global-rc` command to open your global `latexmkrc` configuration file. This file allows you to customize `latexmk` behavior, such as adding support for glossaries:
+
+```perl
+# Glossaries support
+add_cus_dep('glo', 'gls', 0, 'makeglossaries');
+add_cus_dep('acn', 'acr', 0, 'makeglossaries');
+sub makeglossaries {
+    system("makeglossaries \"$_[0]\"");
+}
+```
+
 ## Installation
 
 To install `latex-tools` search for [latex-tools](https://web.pulsar-edit.dev/packages/latex-tools) in the Install pane of the Pulsar settings or run `ppm install latex-tools`. Alternatively, you can run `ppm install asiloisad/pulsar-latex-tools` to install a package directly from the GitHub repository.
@@ -35,6 +75,20 @@ This package works seamlessly with the [pdf-viewer](https://web.pulsar-edit.dev/
 - **SyncTeX support**: Forward and backward search between source and PDF when both packages are installed.
 - **Status bar**: The LaTeX status bar remains visible when viewing PDFs, allowing you to compile, open PDF, or clean files directly from the PDF viewer.
 - **Build waiting**: If you open a PDF while a build is in progress, the package will wait for completion and automatically open the updated PDF.
+
+## Magic Comments
+
+You can specify the LaTeX engine per-file using magic comments at the top of your `.tex` file:
+
+```latex
+% !TEX program = xelatex
+\documentclass{article}
+...
+```
+
+Supported engines: `pdflatex`, `xelatex`, `lualatex`
+
+The magic comment overrides the global engine setting in the package configuration.
 
 ## Multiple Simultaneous Builds
 
