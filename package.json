@@ -1,7 +1,7 @@
 {
   "name": "latex-tools",
   "main": "./lib/main",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "LaTeX tools for Pulsar editor",
   "keywords": [
     "latex",
@@ -107,9 +107,18 @@
       "type": "string",
       "default": "pdflatex",
       "enum": [
-        {"value": "pdflatex", "description": "pdfLaTeX - Standard engine, fast compilation"},
-        {"value": "xelatex", "description": "XeLaTeX - Unicode and system fonts support"},
-        {"value": "lualatex", "description": "LuaLaTeX - Lua scripting and Unicode support"}
+        {
+          "value": "pdflatex",
+          "description": "pdfLaTeX - Standard engine, fast compilation"
+        },
+        {
+          "value": "xelatex",
+          "description": "XeLaTeX - Unicode and system fonts support"
+        },
+        {
+          "value": "lualatex",
+          "description": "LuaLaTeX - Lua scripting and Unicode support"
+        }
       ]
     },
     "outputVerbosity": {
@@ -119,9 +128,18 @@
       "type": "string",
       "default": "default",
       "enum": [
-        {"value": "default", "description": "Default - Show all output"},
-        {"value": "silent", "description": "Silent - Suppress most output"},
-        {"value": "quiet", "description": "Quiet - Only show errors"}
+        {
+          "value": "default",
+          "description": "Default - Show all output"
+        },
+        {
+          "value": "silent",
+          "description": "Silent - Suppress most output"
+        },
+        {
+          "value": "quiet",
+          "description": "Quiet - Only show errors"
+        }
       ]
     },
     "shellEscape": {
