@@ -1,19 +1,23 @@
 # latex-tools
 
-LaTeX tools for Pulsar editor.
+Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, integrated linting, and multiple build management.
 
-- **Compilation**: Compile LaTeX documents using `latexmk`.
-- **PDF Viewing**: Open generated PDFs internally in Pulsar or in an external viewer.
-- **SyncTeX**: Support for forward and backward search between source and PDF.
-- **Clean**: Remove auxiliary files generated during compilation.
-- **Linter**: Integrated error reporting via `linter-indie`.
-- **Multiple Builds**: Support for compiling multiple files simultaneously.
+## Features
 
-## Requirements
+- **Compilation**: Build documents using `latexmk` with configurable engines.
+- **PDF viewing**: Open PDFs internally or in external viewer.
+- **SyncTeX**: Forward and backward search between source and PDF.
+- **Linter integration**: Error reporting via `linter-indie`.
+- **Multiple builds**: Compile multiple files simultaneously.
+- **Magic comments**: Per-file engine selection with `% !TEX program`.
+
+## Installation
+
+To install `latex-tools` search for [latex-tools](https://web.pulsar-edit.dev/packages/latex-tools) in the Install pane of the Pulsar settings or run `ppm install latex-tools`. Alternatively, you can run `ppm install asiloisad/pulsar-latex-tools` to install a package directly from the GitHub repository.
+
+## Installing LaTeX
 
 This package requires `latexmk` and a LaTeX distribution to be installed on your system.
-
-### Installing LaTeX
 
 **Windows:**
 - [MiKTeX](https://miktex.org/download) - Recommended, includes `latexmk`
@@ -28,15 +32,13 @@ This package requires `latexmk` and a LaTeX distribution to be installed on your
 - Fedora: `sudo dnf install texlive-scheme-full latexmk`
 - Arch: `sudo pacman -S texlive-most latexmk`
 
-### Verifying Installation
-
 After installation, verify that `latexmk` is available in your PATH:
 
 ```bash
 latexmk --version
 ```
 
-### Global Configuration
+## Global configuration
 
 Use the `latex-tools:global-rc` command to open your global `latexmkrc` configuration file. This file allows you to customize `latexmk` behavior, such as adding support for glossaries:
 
@@ -49,24 +51,23 @@ sub makeglossaries {
 }
 ```
 
-## Installation
-
-To install `latex-tools` search for [latex-tools](https://web.pulsar-edit.dev/packages/latex-tools) in the Install pane of the Pulsar settings or run `ppm install latex-tools`. Alternatively, you can run `ppm install asiloisad/pulsar-latex-tools` to install a package directly from the GitHub repository.
-
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `latex-tools:compile` | Compile the current LaTeX document using `latexmk`. |
-| `latex-tools:open-pdf` | Open the generated PDF in Pulsar (requires [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer)). |
-| `latex-tools:open-pdf-external` | Open the generated PDF in an external viewer. |
-| `latex-tools:clean` | Remove auxiliary files generated during compilation. |
-| `latex-tools:clean-linter` | Clear all linter messages. |
-| `latex-tools:interrupt` | Stop the current build process for the active file. |
-| `latex-tools:interrupt-all` | Stop all running build processes. |
-| `latex-tools:kill-and-clean` | Interrupt the build and clean auxiliary files. |
-| `latex-tools:toggle-compile-on-save` | Toggle automatic compilation when the file is saved. |
-| `latex-tools:global-rc` | Open the global `latexmkrc` configuration file (creates with defaults if not exists). |
+Commands available in `atom-workspace`:
+
+- `latex-tools:global-rc`: open the global `latexmkrc` configuration file (creates with defaults if not exists).
+
+Commands available in `atom-text-editor[data-grammar~="latex"]`:
+
+- `latex-tools:compile`: (`F5`) compile the current LaTeX document using `latexmk`,
+- `latex-tools:toggle-compile-on-save`: (`Alt+F5`) toggle automatic compilation when the file is saved,
+- `latex-tools:interrupt`: (`Ctrl+F5`) stop the current build process for the active file,
+- `latex-tools:interrupt-all`: stop all running build processes,
+- `latex-tools:clean`: (`F6`) remove auxiliary files generated during compilation,
+- `latex-tools:clean-linter`: clear all linter messages,
+- `latex-tools:kill-and-clean`: (`Ctrl+F6`) interrupt the build and clean auxiliary files,
+- `latex-tools:open-pdf`: (`F7`) open the generated PDF in Pulsar (requires [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer)),
+- `latex-tools:open-pdf-external`: (`F8`) open the generated PDF in an external viewer.
 
 ## Integration with pdf-viewer
 
@@ -76,7 +77,7 @@ This package works seamlessly with the [pdf-viewer](https://web.pulsar-edit.dev/
 - **Status bar**: The LaTeX status bar remains visible when viewing PDFs, allowing you to compile, open PDF, or clean files directly from the PDF viewer.
 - **Build waiting**: If you open a PDF while a build is in progress, the package will wait for completion and automatically open the updated PDF.
 
-## Magic Comments
+## Magic comments
 
 You can specify the LaTeX engine per-file using magic comments at the top of your `.tex` file:
 
@@ -90,15 +91,13 @@ Supported engines: `pdflatex`, `xelatex`, `lualatex`
 
 The magic comment overrides the global engine setting in the package configuration.
 
-## Multiple Simultaneous Builds
+## Multiple simultaneous builds
 
 The package supports compiling multiple LaTeX files simultaneously. Each file tracks its own build state independently, allowing you to start a compilation in one file while another is still building. The status bar updates to show the build state of the currently active file.
 
-## Provided Service
+## Service
 
 The package provides a `latex-tools.build` service (version `1.0.0`) that allows other packages to monitor LaTeX build status.
-
-### Usage
 
 In your package's `package.json`, add the consumed service:
 
@@ -142,12 +141,10 @@ consumeBuildService(service) {
 }
 ```
 
-### API
-
-#### Methods
+### Methods
 
 | Method | Description |
-|--------|-------------|
+| --- | --- |
 | `onDidStartBuild(callback)` | Called when a build starts. Callback receives `{ file }`. |
 | `onDidFinishBuild(callback)` | Called when a build succeeds. Callback receives `{ file, output }`. |
 | `onDidFailBuild(callback)` | Called when a build fails. Callback receives `{ file, error, output }`. |
@@ -155,13 +152,13 @@ consumeBuildService(service) {
 | `getStatus(filePath?)` | Returns status for a specific file or all builds if no path provided. |
 | `isBuilding(filePath)` | Returns `true` if the specified file is currently being compiled. |
 
-#### Status Values
+### Status values
 
 - `'idle'` - No build in progress
 - `'building'` - Build is currently running
 - `'success'` - Last build completed successfully
 - `'error'` - Last build failed
 
-# Contributing
+## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
