@@ -64,9 +64,10 @@ Commands available in `atom-text-editor[data-grammar~="latex"]`:
 - `latex-tools:interrupt`: (`Ctrl+F5`) stop the current build process for the active file,
 - `latex-tools:interrupt-all`: stop all running build processes,
 - `latex-tools:clean`: (`F6`) remove auxiliary files generated during compilation,
-- `latex-tools:clean-linter`: clear all linter messages,
+- `latex-tools:clean-linter`: (`Alt+F6`) clear all linter messages,
 - `latex-tools:kill-and-clean`: (`Ctrl+F6`) interrupt the build and clean auxiliary files,
-- `latex-tools:open-pdf`: (`F7`) open the generated PDF in Pulsar (requires [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer)),
+- `latex-tools:open-pdf`: (`F7`) open the generated PDF in Pulsar,
+- `latex-tools:synctex`: (`Alt+F7`) jump from source to corresponding PDF location (forward SyncTeX),
 - `latex-tools:open-pdf-external`: (`F8`) open the generated PDF in an external viewer.
 
 ## Integration with pdf-viewer
@@ -97,16 +98,16 @@ The package supports compiling multiple LaTeX files simultaneously. Each file tr
 
 ## Service
 
-The package provides a `latex-tools.build` service (version `1.0.0`) that allows other packages to monitor LaTeX build status.
+The package provides a `latex-tools` service (version `1.0.0`) that allows other packages to integrate with LaTeX compilation and SyncTeX.
 
 In your package's `package.json`, add the consumed service:
 
 ```json
 {
   "consumedServices": {
-    "latex-tools.build": {
+    "latex-tools": {
       "versions": {
-        "1.0.0": "consumeBuildService"
+        "1.0.0": "consumeLatexTools"
       }
     }
   }
@@ -116,7 +117,7 @@ In your package's `package.json`, add the consumed service:
 Then in your package's main module:
 
 ```javascript
-consumeBuildService(service) {
+consumeLatexTools(service) {
   // Subscribe to build events
   this.subscriptions.add(
     service.onDidStartBuild(({ file }) => {
@@ -151,6 +152,8 @@ consumeBuildService(service) {
 | `onDidChangeBuildStatus(callback)` | Called on any status change. Callback receives `{ status, file, error? }`. |
 | `getStatus(filePath?)` | Returns status for a specific file or all builds if no path provided. |
 | `isBuilding(filePath)` | Returns `true` if the specified file is currently being compiled. |
+| `syncToPdf(file, line, column)` | Forward SyncTeX: returns `{ page, x, y }` for PDF position. |
+| `syncToSource(file, page, x, y)` | Backward SyncTeX: returns `{ file, line, column }` and opens the source. |
 
 ### Status values
 

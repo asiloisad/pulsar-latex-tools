@@ -14,9 +14,9 @@
     "atom": ">=1.100.0 <2.0.0"
   },
   "providedServices": {
-    "latex-tools.build": {
+    "latex-tools": {
       "versions": {
-        "1.0.0": "provideBuildStatus"
+        "1.0.0": "provideLatexTools"
       }
     }
   },
@@ -38,70 +38,15 @@
     }
   },
   "configSchema": {
-    "enableSynctex": {
+    "latexmkPath": {
       "order": 1,
-      "title": "Enable SyncTeX",
-      "description": "Enable SyncTeX for forward and backward search between source and PDF. Required for pdf-viewer synctex features.",
-      "type": "boolean",
-      "default": true
-    },
-    "cleanAuxFiles": {
-      "order": 2,
-      "title": "Clean auxiliary files after build",
-      "description": "Remove auxiliary files (.aux, .log, .out, etc.) after successful compilation.",
-      "type": "boolean",
-      "default": false
-    },
-    "cleanExtensions": {
-      "order": 3,
-      "title": "Clean patterns",
-      "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command.",
-      "type": "array",
-      "default": [
-        "aux",
-        "acn",
-        "acr",
-        "alg",
-        "glg",
-        "glo",
-        "gls",
-        "ist",
-        "log",
-        "out",
-        "toc",
-        "lof",
-        "lot",
-        "lol",
-        "loa",
-        "bbl",
-        "blg",
-        "fls",
-        "fdb_latexmk",
-        "nav",
-        "snm",
-        "vrb",
-        "bcf",
-        "run.xml",
-        "idx",
-        "ilg",
-        "ind",
-        "maf",
-        "nlo",
-        "nls",
-        "brf",
-        "ptc",
-        "thm",
-        "xdv",
-        "pyg",
-        "*.bcf*",
-        "*.mtc*"
-      ],
-      "items": {
-        "type": "string"
-      }
+      "title": "Path to latexmk",
+      "description": "Path to the latexmk executable. Leave as 'latexmk' if it's in your PATH.",
+      "type": "string",
+      "default": "latexmk"
     },
     "latexEngine": {
-      "order": 4,
+      "order": 2,
       "title": "LaTeX Engine",
       "description": "The LaTeX engine to use for compilation.",
       "type": "string",
@@ -121,8 +66,29 @@
         }
       ]
     },
-    "outputVerbosity": {
+    "enableSynctex": {
+      "order": 3,
+      "title": "Enable SyncTeX",
+      "description": "Enable SyncTeX for forward and backward search between source and PDF. Required for synctex features.",
+      "type": "boolean",
+      "default": false
+    },
+    "synctexPath": {
+      "order": 4,
+      "title": "Path to SyncTeX",
+      "description": "Path to the synctex executable. Used for forward and backward search between source and PDF.",
+      "type": "string",
+      "default": "synctex"
+    },
+    "shellEscape": {
       "order": 5,
+      "title": "Enable shell escape",
+      "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
+      "type": "boolean",
+      "default": false
+    },
+    "outputVerbosity": {
+      "order": 6,
       "title": "Output Verbosity",
       "description": "Control the amount of output from latexmk during compilation.",
       "type": "string",
@@ -142,38 +108,32 @@
         }
       ]
     },
-    "shellEscape": {
-      "order": 6,
-      "title": "Enable shell escape",
-      "description": "Enable shell escape (-shell-escape) for packages that need to execute external commands. WARNING: Only enable for trusted documents.",
+    "cleanAuxFiles": {
+      "order": 7,
+      "title": "Clean auxiliary files after build",
+      "description": "Remove auxiliary files (.aux, .log, .out, etc.) after successful compilation.",
       "type": "boolean",
       "default": false
+    },
+    "cleanExtensions": {
+      "order": 8,
+      "title": "Clean patterns",
+      "description": "List of file extensions to remove when cleaning (comma-separated, without dots). Used by the clean command.",
+      "type": "array",
+      "default": [
+        "aux", "acn", "acr", "alg", "glg", "glo", "gls", "ist", "log", "out",
+        "toc", "lof", "lot", "lol", "loa", "bbl", "blg", "fls", "fdb_latexmk",
+        "nav", "snm", "vrb", "bcf", "run.xml", "idx", "ilg", "ind", "maf",
+        "nlo", "nls", "brf", "ptc", "thm", "xdv", "pyg", "*.bcf*", "*.mtc*"
+      ],
+      "items": {
+        "type": "string"
+      }
     },
     "debug": {
-      "order": 7,
+      "order": 9,
       "title": "Debug Mode",
       "description": "Enable debug messages in the developer console.",
-      "type": "boolean",
-      "default": false
-    },
-    "suppressErrors": {
-      "order": 8,
-      "title": "Suppress Errors",
-      "description": "Hide error messages from the linter panel.",
-      "type": "boolean",
-      "default": false
-    },
-    "suppressWarnings": {
-      "order": 9,
-      "title": "Suppress Warnings",
-      "description": "Hide warning messages from the linter panel.",
-      "type": "boolean",
-      "default": false
-    },
-    "suppressInfos": {
-      "order": 10,
-      "title": "Suppress Infos",
-      "description": "Hide info messages from the linter panel.",
       "type": "boolean",
       "default": false
     }
