@@ -95,8 +95,12 @@
       "default": "default",
       "enum": [
         {
+          "value": "extended",
+          "description": "Extended - Show errors, warnings, and info"
+        },
+        {
           "value": "default",
-          "description": "Default - Show all output"
+          "description": "Default - Show errors and warnings"
         },
         {
           "value": "silent",
