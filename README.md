@@ -7,7 +7,7 @@ Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, 
 - **Compilation**: Build documents using `latexmk` with configurable engines.
 - **PDF viewing**: Open PDFs internally or in external viewer.
 - **SyncTeX**: Forward and backward search between source and PDF.
-- **Linter integration**: Error reporting via `linter-indie`.
+- **Linter integration**: Error reporting via `linter-indie`. With [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle), errors display clickable references to log files.
 - **Multiple builds**: Compile multiple files simultaneously.
 - **Magic comments**: Per-file engine selection with `% !TEX program`.
 
