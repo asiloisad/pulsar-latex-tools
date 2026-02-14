@@ -2,7 +2,7 @@
   "name": "latex-tools",
   "main": "./lib/main",
   "version": "0.7.1",
-  "description": "LaTeX tools for Pulsar editor",
+  "description": "Compile LaTeX documents with latexmk and view PDFs",
   "keywords": [
     "latex",
     "tex",

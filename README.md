@@ -96,11 +96,11 @@ The magic comment overrides the global engine setting in the package configurati
 
 The package supports compiling multiple LaTeX files simultaneously. Each file tracks its own build state independently, allowing you to start a compilation in one file while another is still building. The status bar updates to show the build state of the currently active file.
 
-## Service
+## Provided Service `latex-tools`
 
-The package provides a `latex-tools` service (version `1.0.0`) that allows other packages to integrate with LaTeX compilation and SyncTeX.
+Allows other packages to integrate with LaTeX compilation and SyncTeX. Subscribe to build events, query build status, and perform forward/backward SyncTeX lookups.
 
-In your package's `package.json`, add the consumed service:
+In your `package.json`:
 
 ```json
 {
@@ -114,7 +114,7 @@ In your package's `package.json`, add the consumed service:
 }
 ```
 
-Then in your package's main module:
+In your main module:
 
 ```javascript
 consumeLatexTools(service) {
@@ -157,10 +157,10 @@ consumeLatexTools(service) {
 
 ### Status values
 
-- `'idle'` - No build in progress
-- `'building'` - Build is currently running
-- `'success'` - Last build completed successfully
-- `'error'` - Last build failed
+- `'idle'` — No build in progress
+- `'building'` — Build is currently running
+- `'success'` — Last build completed successfully
+- `'error'` — Last build failed
 
 ## Contributing
 
