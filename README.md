@@ -1,14 +1,15 @@
 # latex-tools
 
-Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, integrated linting, and multiple build management.
+Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, compile-on-save, integrated linting, and multiple build management.
 
 ## Features
 
 - **Compilation**: Build documents using `latexmk` with configurable engines.
-- **PDF viewing**: Open PDFs internally or in external viewer.
+- **Compile-on-save**: Automatically recompile when the file is saved.
+- **PDF viewing**: Open PDFs internally via [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer) or in an external viewer.
 - **SyncTeX**: Forward and backward search between source and PDF.
 - **Linter integration**: Error reporting via `linter-indie`. With [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle), errors display clickable references to log files.
-- **Multiple builds**: Compile multiple files simultaneously.
+- **Multiple builds**: Compile multiple files simultaneously with independent build states.
 - **Magic comments**: Per-file engine selection with `% !TEX program`.
 
 ## Installation
@@ -69,6 +70,22 @@ Commands available in `atom-text-editor[data-grammar~="latex"]`:
 - `latex-tools:open-pdf`: (`F7`) open the generated PDF in Pulsar,
 - `latex-tools:synctex`: (`Alt+F7`) jump from source to corresponding PDF location (forward SyncTeX),
 - `latex-tools:open-pdf-external`: (`F8`) open the generated PDF in an external viewer.
+
+## Status bar
+
+The status bar item shows the current build state with a live timer:
+
+- **TeX** — idle, click to compile
+- **TeX\*** — compile-on-save is enabled
+
+**Mouse interactions:**
+
+| Action | Effect |
+| --- | --- |
+| Left click | Compile |
+| Alt + Left click | Toggle compile-on-save |
+| Middle click | Split PDF / TeX source |
+| Right click | Kill build and clean auxiliary files |
 
 ## Integration with pdf-viewer
 
@@ -150,8 +167,15 @@ consumeLatexTools(service) {
 | `onDidFinishBuild(callback)` | Called when a build succeeds. Callback receives `{ file, output }`. |
 | `onDidFailBuild(callback)` | Called when a build fails. Callback receives `{ file, error, output }`. |
 | `onDidChangeBuildStatus(callback)` | Called on any status change. Callback receives `{ status, file, error? }`. |
+| `onDidUpdateMessages(callback)` | Called when linter messages update. Callback receives `{ file, messages }`. |
+| `onDidChangeCompileOnSave(callback)` | Called when compile-on-save is toggled. Callback receives `{ file, enabled }`. |
 | `getStatus(filePath?)` | Returns status for a specific file or all builds if no path provided. |
 | `isBuilding(filePath)` | Returns `true` if the specified file is currently being compiled. |
+| `isAnyBuilding()` | Returns `true` if any file is currently being compiled. |
+| `compile(filePath)` | Trigger compilation for the given file. |
+| `interrupt(filePath)` | Interrupt the build for the given file. |
+| `interruptAll()` | Interrupt all running builds. |
+| `isCompileOnSaveEnabled(editor)` | Returns `true` if compile-on-save is active for the editor. |
 | `syncToPdf(file, line, column)` | Forward SyncTeX: returns `{ page, x, y }` for PDF position. |
 | `syncToSource(file, page, x, y)` | Backward SyncTeX: returns `{ file, line, column }` and opens the source. |
 
