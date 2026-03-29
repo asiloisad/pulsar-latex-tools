@@ -75,8 +75,8 @@ Commands available in `atom-text-editor[data-grammar~="latex"]`:
 
 The status bar item shows the current build state with a live timer:
 
-- **TeX** — idle, click to compile
-- **TeX\*** — compile-on-save is enabled
+- **TeX**: idle, click to compile
+- **TeX\***: compile-on-save is enabled
 
 **Mouse interactions:**
 
@@ -181,11 +181,11 @@ consumeLatexTools(service) {
 
 ### Status values
 
-- `'idle'` — No build in progress
-- `'building'` — Build is currently running
-- `'success'` — Last build completed successfully
-- `'error'` — Last build failed
+- `'idle'`: No build in progress
+- `'building'`: Build is currently running
+- `'success'`: Last build completed successfully
+- `'error'`: Last build failed
 
 ## Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
