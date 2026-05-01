@@ -60,16 +60,16 @@ Commands available in `atom-workspace`:
 
 Commands available in `atom-text-editor[data-grammar~="latex"]`:
 
-- `latex-tools:compile`: (`F5`) compile the current LaTeX document using `latexmk`,
-- `latex-tools:toggle-compile-on-save`: (`Alt+F5`) toggle automatic compilation when the file is saved,
-- `latex-tools:interrupt`: (`Ctrl+F5`) stop the current build process for the active file,
+- `latex-tools:compile`: <kbd>F5</kbd> compile the current LaTeX document using `latexmk`,
+- `latex-tools:toggle-compile-on-save`: <kbd>Alt+F5</kbd> toggle automatic compilation when the file is saved,
+- `latex-tools:interrupt`: <kbd>Ctrl+F5</kbd> stop the current build process for the active file,
 - `latex-tools:interrupt-all`: stop all running build processes,
-- `latex-tools:clean`: (`F6`) remove auxiliary files generated during compilation,
-- `latex-tools:clean-linter`: (`Alt+F6`) clear all linter messages,
-- `latex-tools:kill-and-clean`: (`Ctrl+F6`) interrupt the build and clean auxiliary files,
-- `latex-tools:open-pdf`: (`F7`) open the generated PDF in Pulsar,
-- `latex-tools:synctex`: (`Alt+F7`) jump from source to corresponding PDF location (forward SyncTeX),
-- `latex-tools:open-pdf-external`: (`F8`) open the generated PDF in an external viewer.
+- `latex-tools:clean`: <kbd>F6</kbd> remove auxiliary files generated during compilation,
+- `latex-tools:clean-linter`: <kbd>Alt+F6</kbd> clear all linter messages,
+- `latex-tools:kill-and-clean`: <kbd>Ctrl+F6</kbd> interrupt the build and clean auxiliary files,
+- `latex-tools:open-pdf`: <kbd>F7</kbd> open the generated PDF in Pulsar,
+- `latex-tools:synctex`: <kbd>Alt+F7</kbd> jump from source to corresponding PDF location (forward SyncTeX),
+- `latex-tools:open-pdf-external`: <kbd>F8</kbd> open the generated PDF in an external viewer.
 
 ## Status bar
 
