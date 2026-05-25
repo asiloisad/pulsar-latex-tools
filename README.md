@@ -6,7 +6,7 @@ Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, 
 
 - **Compilation**: Build documents using `latexmk` with configurable engines.
 - **Compile-on-save**: Automatically recompile when the file is saved.
-- **PDF viewing**: Open PDFs internally via [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer) or in an external viewer.
+- **PDF viewing**: Open PDFs internally via [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer) or in an external viewer.
 - **SyncTeX**: Forward and backward search between source and PDF.
 - **Linter integration**: Error reporting via `linter-indie`. With [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle), errors display clickable references to log files.
 - **Multiple builds**: Compile multiple files simultaneously with independent build states.
@@ -60,16 +60,16 @@ Commands available in `atom-workspace`:
 
 Commands available in `atom-text-editor[data-grammar~="latex"]`:
 
-- `latex-tools:compile`: <kbd>F5</kbd> compile the current LaTeX document using `latexmk`,
-- `latex-tools:toggle-compile-on-save`: <kbd>Alt+F5</kbd> toggle automatic compilation when the file is saved,
-- `latex-tools:interrupt`: <kbd>Ctrl+F5</kbd> stop the current build process for the active file,
+- `latex-tools:compile`: compile the current LaTeX document using `latexmk`,
+- `latex-tools:toggle-compile-on-save`: toggle automatic compilation when the file is saved,
+- `latex-tools:interrupt`: stop the current build process for the active file,
 - `latex-tools:interrupt-all`: stop all running build processes,
-- `latex-tools:clean`: <kbd>F6</kbd> remove auxiliary files generated during compilation,
-- `latex-tools:clean-linter`: <kbd>Alt+F6</kbd> clear all linter messages,
-- `latex-tools:kill-and-clean`: <kbd>Ctrl+F6</kbd> interrupt the build and clean auxiliary files,
-- `latex-tools:open-pdf`: <kbd>F7</kbd> open the generated PDF in Pulsar,
-- `latex-tools:synctex`: <kbd>Alt+F7</kbd> jump from source to corresponding PDF location (forward SyncTeX),
-- `latex-tools:open-pdf-external`: <kbd>F8</kbd> open the generated PDF in an external viewer.
+- `latex-tools:clean`: remove auxiliary files generated during compilation,
+- `latex-tools:clean-linter`: clear all linter messages,
+- `latex-tools:kill-and-clean`: interrupt the build and clean auxiliary files,
+- `latex-tools:open-pdf`: open the generated PDF in Pulsar,
+- `latex-tools:synctex`: jump from source to corresponding PDF location (forward SyncTeX),
+- `latex-tools:open-pdf-external`: open the generated PDF in an external viewer.
 
 ## Status bar
 
@@ -89,7 +89,7 @@ The status bar item shows the current build state with a live timer:
 
 ## Integration with pdf-viewer
 
-This package works seamlessly with the [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer) package:
+This package works seamlessly with the [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer) package:
 
 - **SyncTeX support**: Forward and backward search between source and PDF when both packages are installed.
 - **Status bar**: The LaTeX status bar remains visible when viewing PDFs, allowing you to compile, open PDF, or clean files directly from the PDF viewer.
