@@ -5,7 +5,7 @@ Compile LaTeX documents with `latexmk` and view PDFs. Includes SyncTeX support, 
 ## Features
 
 - **Compilation**: Build documents using `latexmk` with configurable engines.
-- **Compile-on-save**: Automatically recompile when the file is saved.
+- **Compile-on-save**: Automatically recompile when an observed file is saved.
 - **PDF viewing**: Open PDFs internally via [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer) or in an external viewer.
 - **SyncTeX**: Forward and backward search between source and PDF.
 - **Linter integration**: Error reporting via `linter-indie`. With [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle), errors display clickable references to log files.
@@ -57,11 +57,12 @@ sub makeglossaries {
 Commands available in `atom-workspace`:
 
 - `latex-tools:global-rc`: open the global `latexmkrc` configuration file (creates with defaults if not exists).
+- `latex-tools:observed-files`: list files observed for compile-on-save.
 
 Commands available in `atom-text-editor[data-grammar~="latex"]`:
 
 - `latex-tools:compile`: compile the current LaTeX document using `latexmk`,
-- `latex-tools:toggle-compile-on-save`: toggle automatic compilation when the file is saved,
+- `latex-tools:toggle-compile-on-save`: toggle automatic compilation when the active file is saved,
 - `latex-tools:interrupt`: stop the current build process for the active file,
 - `latex-tools:interrupt-all`: stop all running build processes,
 - `latex-tools:clean`: remove auxiliary files generated during compilation,
@@ -77,13 +78,14 @@ The status bar item shows the current build state with a live timer:
 
 - **TeX**: idle, click to compile
 - **TeX\***: compile-on-save is enabled
+- **Obs N**: number of files observed for compile-on-save, click to list them
 
 **Mouse interactions:**
 
 | Action | Effect |
 | --- | --- |
 | Left click | Compile |
-| Alt + Left click | Toggle compile-on-save |
+| Alt + Left click | Toggle file observation for compile-on-save |
 | Middle click | Split PDF / TeX source |
 | Right click | Kill build and clean auxiliary files |
 
@@ -111,6 +113,8 @@ Supported engines: `pdflatex`, `xelatex`, `lualatex`
 The program magic comment overrides the global engine setting in the package configuration. The root magic comment is used by SyncTeX when the active file is included by another document.
 
 Root file discovery is used for compile, open PDF, clean, and SyncTeX commands. Discovery checks `% !TEX root` first, then existing build metadata such as `.fls`, and finally common LaTeX include commands like `\input`, `\include`, `\subfile`, `\import`, and `\subimport`.
+
+Compile-on-save observes file paths rather than editor instances. If it is enabled for an included file, saving that file compiles the discovered root document.
 
 ## Multiple simultaneous builds
 
@@ -179,6 +183,7 @@ consumeLatexTools(service) {
 | `interrupt(filePath)` | Interrupt the build for the given file. |
 | `interruptAll()` | Interrupt all running builds. |
 | `isCompileOnSaveEnabled(editor)` | Returns `true` if compile-on-save is active for the editor. |
+| `getCompileOnSaveFiles()` | Returns file paths currently observed by compile-on-save. |
 | `syncToPdf(file, line, column)` | Forward SyncTeX: returns `{ page, x, y }` for PDF position. |
 | `syncToSource(file, page, x, y)` | Backward SyncTeX: returns `{ file, line, column }` and opens the source. |
 
