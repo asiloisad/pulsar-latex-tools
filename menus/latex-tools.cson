@@ -19,6 +19,7 @@
           { type: 'separator' }
           { label: 'Toggle Compile on Save', command: 'latex-tools:toggle-compile-on-save' }
           { label: 'Observed Files', command: 'latex-tools:observed-files' }
+          { label: 'Clear All Observed Files', command: 'latex-tools:clear-all-observed-files' }
           { label: 'Global Latexmkrc', command: 'latex-tools:global-rc' }
         ]
       }
