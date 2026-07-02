@@ -79,7 +79,7 @@ The status bar item shows the current build state with a live timer:
 
 - **TeX**: idle, click to compile
 - **TeX\***: compile-on-save is enabled
-- **Obs N**: number of files observed for compile-on-save
+- **eye icon + TeX (N)**: number of files observed for compile-on-save
 
 **Mouse interactions:**
 
@@ -89,8 +89,8 @@ The status bar item shows the current build state with a live timer:
 | Alt + Left click | Toggle file observation for compile-on-save |
 | Middle click | Split PDF / TeX source |
 | Right click | Kill build and clean auxiliary files |
-| Obs N left click | List observed files |
-| Obs N right click | Clear all observed files |
+| TeX (N) left click | List observed files |
+| TeX (N) right click | Clear all observed files |
 
 ## Integration with pdf-viewer
 
