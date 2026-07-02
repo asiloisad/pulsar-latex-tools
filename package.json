@@ -1,7 +1,7 @@
 {
   "name": "latex-tools",
   "main": "./lib/main",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Compile LaTeX documents with latexmk and view PDFs",
   "keywords": [
     "latex",
