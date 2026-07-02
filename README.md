@@ -97,17 +97,20 @@ This package works seamlessly with the [pdf-viewer](https://github.com/asiloisad
 
 ## Magic comments
 
-You can specify the LaTeX engine per-file using magic comments at the top of your `.tex` file:
+You can specify the LaTeX engine and root document per-file using magic comments at the top of your `.tex` file:
 
 ```latex
 % !TEX program = xelatex
+% !TEX root = ../main.tex
 \documentclass{article}
 ...
 ```
 
 Supported engines: `pdflatex`, `xelatex`, `lualatex`
 
-The magic comment overrides the global engine setting in the package configuration.
+The program magic comment overrides the global engine setting in the package configuration. The root magic comment is used by SyncTeX when the active file is included by another document.
+
+Root file discovery is used for compile, open PDF, clean, and SyncTeX commands. Discovery checks `% !TEX root` first, then existing build metadata such as `.fls`, and finally common LaTeX include commands like `\input`, `\include`, `\subfile`, `\import`, and `\subimport`.
 
 ## Multiple simultaneous builds
 
